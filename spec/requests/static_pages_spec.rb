@@ -14,8 +14,8 @@ describe StaticPagesController, :type => :request do
   				visit '/static_pages/home'
   				page.should have_selector('title',
                     :text => "Ruby on Rails Tutorial Sample App | Home")
-			end
-  		end
+			 end
+  	end
 
 
 		describe "Help page" do
@@ -29,8 +29,8 @@ describe StaticPagesController, :type => :request do
   				visit '/static_pages/help'
   				page.should have_selector('title',
                     :text => "Ruby on Rails Tutorial Sample App | Help")
-			end
-  		end
+			 end
+  	end
 
 
 		describe "About page" do
@@ -44,9 +44,22 @@ describe StaticPagesController, :type => :request do
   				visit '/static_pages/about'
   				page.should have_selector('title',
                     :text => "Ruby on Rails Tutorial Sample App | About Us")
-			end
-  		end
+			   end
+  	end
 
+    describe "Contact page" do
+
+        it "should have the h1 'Contact'" do
+            visit '/static_pages/contact'
+            page.should have_selector('h1', :text => 'Contact')
+        end
+
+        it "should have the title 'Contact'" do
+          visit '/static_pages/contact'
+          page.should have_selector('title',
+                    :text => "Ruby on Rails Tutorial Sample App | Contact")
+        end
+    end
 
 	end  ##Static pages
 end   ##StaticPagesController
